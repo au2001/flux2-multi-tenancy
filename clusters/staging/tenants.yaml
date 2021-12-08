@@ -1,14 +1,21 @@
+Flag --validation has been deprecated, this arg is no longer used, all resources are validated using server-side apply dry-run
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: tenants
   namespace: flux-system
 spec:
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
   dependsOn:
-    - name: kyverno-policies
-  interval: 5m
+  - name: kyverno-policies
+  interval: 5m0s
+  path: ./tenants/staging
+  prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./tenants/staging
-  prune: true
+
