@@ -4,7 +4,7 @@ metadata:
   name: akka-cluster-visualizer
   namespace: apps
 spec:
-  interval: 5m
+  interval: 30s
   url: https://github.com/Atos-IT-Shared-Platform/akka-cluster-visualizer.git
 
 ---
@@ -19,4 +19,4 @@ spec:
     kind: GitRepository
     name: akka-cluster-visualizer
   path: ./k8s/manifests
-  interval: 5m
+  interval: 30s
