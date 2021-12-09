@@ -3,6 +3,12 @@ kind: Kustomization
 resources:
   - ../base
   - akka-cluster-visualizer-auth.yaml
+spec:
+  serviceAccountName: akka-cluster-visualizer
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
 patchesStrategicMerge:
   - podinfo-values.yaml
   - akka-cluster-visualizer-values.yaml
