@@ -1,6 +1,7 @@
 kind: GitRepository
 metadata:
   name: akka-cluster-visualizer
+  namespace: apps
 spec:
   url: https://github.com/Atos-IT-Shared-Platform/akka-cluster-visualizer.git
   ref:
@@ -9,6 +10,7 @@ spec:
 kind: Kustomization
 metadata:
   name: akka-cluster-visualizer
+  namespace: apps
 spec:
   sourceRef:
     kind: GitRepository
