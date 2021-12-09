@@ -1,3 +1,13 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: akka-cluster-visualizer
+  namespace: apps
+spec:
+  secretRef:
+    name: akka-cluster-visualizer-auth
+
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
@@ -12,3 +22,44 @@ spec:
         namespace: apps
       spec:
         replicas: 1
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: akka-cluster-visualizer-auth
+    namespace: apps
+stringData:
+    password: ENC[AES256_GCM,data:A99KqVbhpL+YeA+x68m1TMMyLLC9PK6O5GaTUbhBFXab4Ff2+CLRrA==,iv:Fz7jBahZnJwa7VEoucJV53BAmL3ukrTaaCZlavFszyQ=,tag:iztnI8WDqxCn1F8c/NVBjQ==,type:str]
+    username: ENC[AES256_GCM,data:TcRUIOek,iv:Xf0ok01WseKENX+lDfRzAvRCko5xTXGWRv7glLViShw=,tag:q9lIF/6r32EG3GynQJdrhQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-12-08T17:20:56Z"
+    mac: ENC[AES256_GCM,data:wmBw6fFe+A60m9tau0LoNSLzpG28u35zg7sZrq2SA2bEDv/Ov16zS5Sk1Lu7temup0dBcTM/oAOqAuusJDd6FjRKbKxsoQgKj3ME8+qb7CljzVT3iDJk56g+qGDsikWAW/Cu25qZkLsEfU04k+eZgPHgx/uJzdU+F+hRRjyxqaU=,iv:4nb0UWk4mv0C5Z2IYaNpohpOTFz8OMy7aSQ6J6Xj0XQ=,tag:TwlPiA/tvo6IHF7SbHwS5A==,type:str]
+    pgp:
+        - created_at: "2021-12-08T17:20:56Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA7ejzU29C4VdARAA0XQ0cM/MD9oh5DD64+aFQ66BaNWNACPg//PwRyKJuwV5
+            3vyB01qeQkIztuxvFtcfpwkVr8850ao8gXo7lYT43pA+QheGQc3agEBBczlzQrlW
+            EqHqUJaiLCxvs9cBmc0zD9SZD3Q95v3JLCbMu+4ZMks1tVIm6X98Wz/aFYIWjruk
+            EfFr/JCGOgYIkI8Yng7p6ESPAGofvBaZ4Q13yK16eLRhJadLLCdizSjkVG7uWCaU
+            Vf77VYXZLnI82iWlac33YV4NbtEq/K+g+NZRf+8KyFFjMCJlaZF2cmEQJ+IwYYZC
+            eNSnSQJOGhliQgZ9ESeIbaE3NW9byVyc+8Rg6UEorqOvsrC0R0V3+pyDem7k0Dfb
+            kSKd2hxL4osuRU9n6ZWRQ51VwPEdK+p6bC8GhKuCMiQ0EMuMVVOXJDPYuNci/soE
+            UB9EAASrLVPpIzHALIZxNhNcWRZV33CgbdWCarevPRqXKIQTkfyUgoljHAQ9W45Z
+            yvi4TyA9GcMGCfso80jI5T4r/3Sp4x9cc6EY+l0uxqwEQeZulxlyPRV2AIz3INfK
+            UxukB2tNKf1/Dg0YCIaJhKWhtAieZ9SQkKiRxnteVQ3vK547GtnaoTB9zPH2Txjy
+            +ptPxftg5zTZqY3jCA5Lky8G8UqLSmz5gxO6+pfppMX7ljAS5nNeVwg1TMhbAAfS
+            XgECN18HXca1d30MieBWfil5mPs1VYjkWH3wYDjHAPLXiYTPiNDsCDGqslakDVqt
+            XjqhE4f2OA/ZYYFRM1p9u8MSnWykDxHe8c1XR317atNl5462BJThJanqlgvXkkQ=
+            =ZPiQ
+            -----END PGP MESSAGE-----
+          fp: D4E257790F03A67DD37AC8C7D512200F0BDCFBE4
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1
