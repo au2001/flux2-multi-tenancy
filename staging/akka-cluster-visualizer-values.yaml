@@ -1,24 +1,9 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: akka-cluster-visualizer
-  namespace: apps
-spec:
-  secretRef:
-    name: akka-cluster-visualizer-auth
-
----
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: akka-cluster-visualizer
   namespace: apps
 spec:
-  serviceAccountName: akka-cluster-visualizer
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
   patchesStrategicMerge:
     - apiVersion: apps/v1
       kind: Deployment

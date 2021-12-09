@@ -14,12 +14,9 @@ metadata:
   name: akka-cluster-visualizer
   namespace: apps
 spec:
+  serviceAccountName: dev-team
   sourceRef:
     kind: GitRepository
     name: akka-cluster-visualizer
   path: ./k8s/manifests
-  serviceAccountName: akka-cluster-visualizer
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
+  interval: 5m
