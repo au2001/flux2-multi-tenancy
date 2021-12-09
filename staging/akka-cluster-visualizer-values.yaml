@@ -14,6 +14,10 @@ metadata:
   name: akka-cluster-visualizer
   namespace: apps
 spec:
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
   patchesStrategicMerge:
     - apiVersion: apps/v1
       kind: Deployment
