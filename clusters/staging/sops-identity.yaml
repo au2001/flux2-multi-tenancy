@@ -1,0 +1,10 @@
+---
+apiVersion: aadpodidentity.k8s.io/v1
+kind: AzureIdentity
+metadata:
+  name: sops-akv-decryptor
+  namespace: flux-system
+spec:
+  clientID: c4253289-a5af-4283-b2e4-7d1f401c9a6b
+  resourceID: /subscriptions/93abd95b-45d8-46c2-b05c-0a40c5865d63/resourcegroups/gitops-demo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sops-akv-decryptor
+  type: 0 # user-managed identity

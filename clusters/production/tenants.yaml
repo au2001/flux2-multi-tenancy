@@ -4,6 +4,8 @@ metadata:
   name: tenants
   namespace: flux-system
 spec:
+  decryption:
+    provider: sops
   dependsOn:
     - name: kyverno-policies
   interval: 5m

@@ -24,3 +24,5 @@ spec:
   sourceRef:
     kind: GitRepository
     name: dev-team
+  secretRef:
+    name: dev-team-auth
