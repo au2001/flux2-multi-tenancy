@@ -18,3 +18,8 @@ spec:
     kind: GitRepository
     name: akka-cluster-visualizer
   path: ./k8s/manifests
+  serviceAccountName: akka-cluster-visualizer
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
