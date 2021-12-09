@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: dev-team-auth
+    namespace: apps
+stringData:
+    password: ENC[AES256_GCM,data:jxDofh5hPjxl+vYhSACQ9Z0++vFq9dJdhuQhHugL107HSxI263ZqPQ==,iv:Dfs+KRTSfhE5kJzhrSivn7lws3FOBeRVTHwU0VgqXlk=,tag:qsU+Dxf2dGEwFdxmxGybgg==,type:str]
+    username: ENC[AES256_GCM,data:sCVUsqBw,iv:ami5lR300llq2mLSnIqSzsBgdxaBGQpusrDE2Iglijk=,tag:dAgFDw6ICaxI/jzWCKQwHg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://github-auth.vault.azure.net
+          name: sops-key
+          version: 60e3af27684e4206a209041328c2514c
+          created_at: "2021-12-09T16:40:53Z"
+          enc: NRv0llmfFPx8FrIu4Rtu6aydREvqRPPj_wvuB_X0aCC2fe482RIRaKfahQKB8dHxC_fvkPBsy7Q4Q5of3OYIigxihEyQyzKWpeFFYe95qtCk8HdfC_tZoLOw_pNAoU9elx39_dM-tYDetx3gKhyVzMhQXu4V5FTAHTVo_KTEJ5Vs0vWi8L6fnTU5kSfK5QEyWX8_eVN5FocYLJNdEZ33nQ7wN4yzJy7y7_E12U4Z_Y2nJfTvA42fxAivPAyZ0bhOwCv1kZacDR3V5wYZwibrgukU5DHdZkM-sI8ulMsGQ96P7Tv5_MFQZA22i-yEYDJhfcn7FJqmBDHvR8Y02xZeEQ
+    hc_vault: []
+    age: []
+    lastmodified: "2021-12-09T16:40:54Z"
+    mac: ENC[AES256_GCM,data:j5G10U/Szv52pXbcr3bxjyVRPhcoEn0gmWpdRB1GhWZWGm0vOZqFI3VdIiSwGp7RQxqE1mdPLLNWJp65QmZrCv0W/LM3zkemE9EnBYciFRl/pS07hTKgEGeTFb/U2zXvyjFod8Vp/je20WQO/Lxz7RKfqM+pmjfuannomCjvGNQ=,iv:SfFnDiWge01GPznfxuhDEXvDWNp4exuff2EdFYxsLVg=,tag:OX57DeEJdjNlI7YIpB7c2w==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1
