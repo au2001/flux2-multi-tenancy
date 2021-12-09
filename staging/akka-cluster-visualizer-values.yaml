@@ -4,6 +4,10 @@ metadata:
   name: akka-cluster-visualizer
   namespace: apps
 spec:
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
   secretRef:
     name: akka-cluster-visualizer-auth
 
