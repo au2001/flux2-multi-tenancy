@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- ../sops-identity.yaml
 patchesStrategicMerge:
 - gotk-patches.yaml
+- ../sops-identity.yaml
 patches:
 - patch: |
     - op: add
